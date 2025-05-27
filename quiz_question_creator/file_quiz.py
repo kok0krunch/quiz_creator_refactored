@@ -21,3 +21,6 @@ class FileQuiz:
             file.write(f"Correct Answer: {correct_answer}\n")
             file.write("-" * 50 + "\n")
             self.questions_added += 1
+            
+    def get_total_questions(self):
+        return self.questions_added
