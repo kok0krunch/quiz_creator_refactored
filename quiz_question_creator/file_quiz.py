@@ -12,3 +12,12 @@ class FileQuiz:
             with open(self.output_file, "w") as file:
                 file.write("Quiz Questions\n")
                 file.write("=" * 50 + "\n")
+    
+    def add_question(self, question, choices, correct_answer):
+        with open(self.output_file, "a") as file:
+            file.write(f"Question: {question}\n")
+            for i, option in enumerate(['a', 'b', 'c', 'd']):
+                file.write(f"Option {option}: {choices[i]}\n")
+            file.write(f"Correct Answer: {correct_answer}\n")
+            file.write("-" * 50 + "\n")
+            self.questions_added += 1
