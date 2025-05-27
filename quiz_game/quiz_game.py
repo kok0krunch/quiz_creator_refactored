@@ -7,6 +7,18 @@ class QuizGame(FileReader):
     def __init__(self, quiz_file="quiz_questions.txt"):
         super().__init__(quiz_file)
         
+    def ask_question(self, question_data):
+        print(Fore.LIGHTCYAN_EX + "\n❓ " + question_data["question"] + Style.RESET_ALL)
+        for key, value in question_data["options"].items():
+            print(Fore.WHITE + f"   {key}: {value}" + Style.RESET_ALL)
+        user_answer = input(Fore.YELLOW + "👉 Your answer (a, b, c, d): " + Style.RESET_ALL).lower()
+        if user_answer == question_data["correct_answer"]:
+            print(Fore.GREEN + "🎉 Correct! Great job!" + Style.RESET_ALL)
+            return True
+        else:
+            print(Fore.RED + f"❌ Wrong! The correct answer was: {question_data['correct_answer']}" + Style.RESET_ALL)
+            return False
+        
     def main_menu(self):
         if not self.questions:
             print(Fore.RED + "❌ No questions available. Exiting the quiz." + Style.RESET_ALL)
