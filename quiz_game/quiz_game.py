@@ -35,3 +35,17 @@ class QuizGame(FileReader):
         else:
             print(Fore.RED + "❌ Invalid input. Please try again." + Style.RESET_ALL + "\n")
             self.main_menu()
+    
+    def display_rules(self):
+        print(Fore.CYAN + "\n📜 Rules of the Quiz:" + Style.RESET_ALL)
+        print("1️⃣  Each question has four options: a, b, c, and d.")
+        print("2️⃣  Enter the letter corresponding to your answer.")
+        print("3️⃣  You will be informed if your answer is correct or wrong.")
+        print("4️⃣  Have fun and do your best!")
+        main = input(Fore.LIGHTBLUE_EX + "\n" + "👉 Would you like to return to the main menu? (yes/no): " + Style.RESET_ALL).lower()
+        if main == 'yes':
+            print(Fore.LIGHTGREEN_EX + "🔄 Returning to the main menu..." + Style.RESET_ALL + "\n")
+            self.main_menu()
+        else:
+            print(Fore.RED + "👋 Exiting the quiz. Goodbye!" + Style.RESET_ALL)
+            sys.exit(0)
